@@ -1,0 +1,25 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+
+INCLUDE(${CMAKE_SOURCE_DIR}/IJMacros.txt)
+
+PROJECT(SphericalDemonsRegistration)
+
+INCLUDE(CTest)
+
+SET(CPACK_PACKAGE_NAME "SphericalDemonsRegistration")
+SET(CPACK_PACKAGE_VENDOR "KITWARE Inc.")
+SET(CPACK_PACKAGE_VERSION_MAJOR "2")
+SET(CPACK_PACKAGE_VERSION_MINOR "0")
+SET(CPACK_PACKAGE_VERSION_PATCH "1")
+INCLUDE(CPack)
+
+SET(Required_Packages
+ITK
+VTK
+)
+
+FOREACH(Package ${Required_Packages})
+  LOADPACKAGE(${Package})
+ENDFOREACH(Package)
+
+ADD_SUBDIRECTORY( QuadEdgeMeshSphericalDiffeomorphicDemonsRegistration )
